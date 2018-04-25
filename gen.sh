@@ -2,6 +2,7 @@
 
 NAME="$1"
 TYPE="$2"
+TYPE_DIR="${TYPE}s"
 
 ################################################################################
 # Setup the variables
@@ -42,11 +43,14 @@ esac
 # Create the directories and files
 ################################################################################
 
-echo "mkdir $NAME"
-mkdir "$NAME"
+echo "mkdir -p $TYPE_DIR"
+mkdir -p "$TYPE_DIR"
 
-echo "Create index.js"
-echo "$indexJS" >> "$NAME/index.js"
+echo "mkdir $TYPE_DIR/$NAME"
+mkdir "$TYPE_DIR/$NAME"
 
-echo "Create $NAME/$NAME.$TYPE.js"
-echo "$fileJS" >> "$NAME/$NAME.$TYPE.js"
+echo "Create $TYPE_DIR/$NAME/index.js"
+echo "$indexJS" >> "$TYPE_DIR/$NAME/index.js"
+
+echo "Create $TYPE_DIR/$NAME/$NAME.$TYPE.js"
+echo "$fileJS" >> "$TYPE_DIR/$NAME/$NAME.$TYPE.js"
